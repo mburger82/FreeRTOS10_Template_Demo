@@ -60,14 +60,14 @@ void vLedBlink(void *pvParameters) {
 	PORTF.DIRSET = PIN0_bm; /*LED1*/
 	PORTF.OUT = 0x01;
 	for(;;) {
-// 		uint32_t stack = get_mem_unused();
-// 		uint32_t heap = xPortGetFreeHeapSize();
-// 		uint32_t taskStack = uxTaskGetStackHighWaterMark(ledTask);
-// 		vDisplayClear();
-// 		vDisplayWriteStringAtPos(0,0,"Stack: %d", stack);
-// 		vDisplayWriteStringAtPos(1,0,"Heap: %d", heap);
-// 		vDisplayWriteStringAtPos(2,0,"TaskStack: %d", taskStack);
-// 		vDisplayWriteStringAtPos(3,0,"FreeSpace: %d", stack+heap);
+ 		uint32_t stack = get_mem_unused();
+ 		uint32_t heap = xPortGetFreeHeapSize();
+ 		uint32_t taskStack = uxTaskGetStackHighWaterMark(ledTask);
+ 		vDisplayClear();
+ 		vDisplayWriteStringAtPos(0,0,"Stack: %d", stack);
+ 		vDisplayWriteStringAtPos(1,0,"Heap: %d", heap);
+ 		vDisplayWriteStringAtPos(2,0,"TaskStack: %d", taskStack);
+ 		vDisplayWriteStringAtPos(3,0,"FreeSpace: %d", stack+heap);
 		PORTF.OUTTGL = 0x01;				
 		vTaskDelay(100 / portTICK_RATE_MS);
 	}
